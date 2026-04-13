@@ -166,6 +166,17 @@
             will-change: opacity;
         }
 
+        body.scrolling .falling-leaf {
+            animation: none !important
+        }
+
+        iframe, .fallingleaf {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        
+
     </style>
 </head>
 
@@ -355,6 +366,28 @@
         <div class="dot" data-target="hero" data-label="Home"></div>
         <div class="dot" data-target="contact" data-label="Contact"></div>
     </div>
+
+    <script>
+        let scrollTimeout;
+
+        window.addEventListener('scroll', () => {
+
+    document.body.classList.add('scrolling');
+
+            clearTimeout(scrollTimeout);
+
+            scrollTimeout = setTimeout(() => {
+
+    document.body.classList.remove('scrolling');
+            }, 120);
+
+        }, { passive: true });
+    </script>
+
+
+    
+
+        
 
     <script>
         // Hero Image Slider Script
